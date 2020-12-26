@@ -237,6 +237,7 @@ type AccountActivity struct {
 	NetAmount       decimal.Decimal `json:"net_amount"`
 	Description     string          `json:"description"`
 	PerShareAmount  decimal.Decimal `json:"per_share_amount"`
+	OrderID         string          `json:"order_id"`
 }
 
 type PortfolioHistory struct {
