@@ -526,6 +526,18 @@ func (c *Client) PlaceOrder(req PlaceOrderRequest) (*Order, error) {
 	return order, nil
 }
 
+func (c *Client) UpdateWatchList(name string, req UpdateWatchListRequest) error {
+	vals := url.Values{}
+	vals.Add("name", name)
+	u, err := url.Parse(fmt.Sprintf("%s/%s/watchlists:by_name?%v", base, apiVersion, vals.Encode))
+	if err != nil {
+		return err
+	}
+
+	_, err = c.put(u, req)
+	return err
+}
+
 // GetOrder submits a request to get an order by the order ID.
 func (c *Client) GetOrder(orderID string) (*Order, error) {
 	u, err := url.Parse(fmt.Sprintf("%s/%s/orders/%s", base, apiVersion, orderID))
@@ -841,6 +853,20 @@ func (c *Client) post(u *url.URL, data interface{}) (*http.Response, error) {
 	}
 
 	req, err := http.NewRequest(http.MethodPost, u.String(), bytes.NewReader(buf))
+	if err != nil {
+		return nil, err
+	}
+
+	return do(c, req)
+}
+
+func (c *Client) put(u *url.URL, data interface{}) (*http.Response, error) {
+	buf, err := json.Marshal(data)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest(http.MethodPut, u.String(), bytes.NewReader(buf))
 	if err != nil {
 		return nil, err
 	}

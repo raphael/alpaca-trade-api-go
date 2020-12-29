@@ -233,7 +233,7 @@ type AccountActivity struct {
 	Symbol          string          `json:"symbol"`
 	LeavesQty       decimal.Decimal `json:"leaves_qty"`
 	CumQty          decimal.Decimal `json:"cum_qty"`
-	Date            time.Time       `json:"date"`
+	Date            string          `json:"date"`
 	NetAmount       decimal.Decimal `json:"net_amount"`
 	Description     string          `json:"description"`
 	PerShareAmount  decimal.Decimal `json:"per_share_amount"`
@@ -288,6 +288,11 @@ type ReplaceOrderRequest struct {
 	Trail         *decimal.Decimal `json:"trail"`
 	TimeInForce   TimeInForce      `json:"time_in_force"`
 	ClientOrderID string           `json:"client_order_id"`
+}
+
+type UpdateWatchListRequest struct {
+	Name    string   `json:"name"`
+	Symbols []string `json:"symbols"`
 }
 
 type AccountConfigurationsRequest struct {
