@@ -529,7 +529,8 @@ func (c *Client) PlaceOrder(req PlaceOrderRequest) (*Order, error) {
 func (c *Client) UpdateWatchList(name string, req UpdateWatchListRequest) error {
 	vals := url.Values{}
 	vals.Add("name", name)
-	u, err := url.Parse(fmt.Sprintf("%s/%s/watchlists:by_name?%v", base, apiVersion, vals.Encode))
+	u, err := url.Parse(fmt.Sprintf("%s/%s/watchlists:by_name?%v", base, apiVersion, vals.Encode()))
+	fmt.Println(u)
 	if err != nil {
 		return err
 	}
