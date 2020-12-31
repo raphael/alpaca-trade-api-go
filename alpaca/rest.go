@@ -168,7 +168,7 @@ func (c *Client) GetAccountActivities(activityType *string, opts *AccountActivit
 			q.Set("date", opts.Date.String())
 		}
 		if opts.Until != nil {
-			q.Set("until", opts.Until.String())
+			q.Set("until", opts.Until.Format(time.RFC3339))
 		}
 		if opts.After != nil {
 			q.Set("after", opts.After.String())
