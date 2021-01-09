@@ -179,6 +179,9 @@ func (c *Client) GetAccountActivities(activityType *string, opts *AccountActivit
 		if opts.PageSize != nil {
 			q.Set("page_size", fmt.Sprint(*opts.PageSize))
 		}
+		if opts.PageToken != nil {
+			q.Set("page_token", *opts.PageToken)
+		}
 	}
 
 	u.RawQuery = q.Encode()

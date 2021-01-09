@@ -309,6 +309,7 @@ type AccountActivitiesRequest struct {
 	After         *time.Time `json:"after"`
 	Direction     *string    `json:"direction"`
 	PageSize      *int       `json:"page_size"`
+	PageToken     *string    `json:"page_token"`
 }
 
 type Side string
