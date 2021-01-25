@@ -393,7 +393,7 @@ type ServerMsg struct {
 
 type TradeUpdate struct {
 	Event       string    `json:"event"`
-	Price       float32   `json:"price"`
+	Price       string    `json:"price"`
 	Timestamp   time.Time `json:"timestamp"`
 	PositionQty string    `json:"position_qty"`
 	Order       Order     `json:"order"`
