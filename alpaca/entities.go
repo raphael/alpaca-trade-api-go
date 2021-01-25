@@ -395,7 +395,7 @@ type TradeUpdate struct {
 	Event       string    `json:"event"`
 	Price       float32   `json:"price"`
 	Timestamp   time.Time `json:"timestamp"`
-	PositionQty int32     `json:"position_qty"`
+	PositionQty string    `json:"position_qty"`
 	Order       Order     `json:"order"`
 }
 
