@@ -264,6 +264,7 @@ type PlaceOrderRequest struct {
 	StopLoss      *StopLoss        `json:"stop_loss"`
 	TrailPrice    *decimal.Decimal `json:"trail_price"`
 	TrailPercent  *decimal.Decimal `json:"trail_percent"`
+	ExtendedHours bool             `json:"extended_hours"`
 }
 
 type TakeProfit struct {
